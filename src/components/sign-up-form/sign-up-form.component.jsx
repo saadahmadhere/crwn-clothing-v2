@@ -4,11 +4,11 @@ import {
 	createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
 
-import FormInput from '../../components/form-input/form-input.component';
+import FormInput from '../form-input/form-input.component';
 import './sign-up-form.styles.scss';
-import Button from '../../components/button/button.component';
+import Button from '../button/button.component';
 
-export const SignUpForm = () => {
+const SignUpForm = () => {
 	const defaultFormFields = {
 		displayName: '',
 		email: '',
@@ -97,3 +97,5 @@ export const SignUpForm = () => {
 		</div>
 	);
 };
+
+export default SignUpForm;
