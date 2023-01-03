@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { useUserContext } from '../../contexts/user.context';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
 
@@ -19,6 +19,7 @@ const defaultFormFields = {
 const SignInForm = () => {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
+	const { setCurrentUser } = useUserContext();
 
 	const resetFormFields = () => {
 		setFormFields(defaultFormFields);
@@ -38,6 +39,7 @@ const SignInForm = () => {
 				password
 			);
 			console.log(response);
+			setCurrentUser(response?.user);
 			resetFormFields();
 		} catch (error) {
 			switch (error.code) {
