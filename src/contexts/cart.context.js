@@ -19,7 +19,7 @@ export const CartContextProvider = ({ children }) => {
 		if (addedProduct) {
 			const newCartItems = cartItems.map((item) =>
 				item.id === addedProduct.id
-					? { ...item, quantity: item.quantity++ }
+					? { ...item, quantity: (item.quantity += 1) }
 					: item
 			);
 			return setCartItems(newCartItems);
