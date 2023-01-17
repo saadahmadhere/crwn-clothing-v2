@@ -34,9 +34,6 @@ const Navigation = () => {
 							SIGN IN
 						</Link>
 					)}
-					<Link className='nav-link' to='/auth'>
-						SIGN IN
-					</Link>
 					<span onClick={() => setIsCartOpen((prev) => !prev)}>
 						<CartIcon />
 					</span>
