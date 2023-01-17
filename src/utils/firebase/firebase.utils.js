@@ -16,6 +16,8 @@ import {
 	doc, //retrieve the document inside our firestore database
 	getDoc, // getting the document data
 	setDoc, // setting the document data
+	collection,
+	writeBatch,
 } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -46,6 +48,22 @@ export const signInWithGoogleRedirect = () =>
 	signInWithRedirect(auth, provider);
 
 export const db = getFirestore(); // this points to our database inside our console, which helps us further in getting/setting data.
+
+export const addCollectionAndDocuments = async (
+	collectionName,
+	objectsToAdd
+) => {
+	const collectionRef = collection(db, collectionName);
+	const batch = writeBatch(db);
+
+	objectsToAdd.forEach((object) => {
+		const docRef = doc(collectionRef, object.title.toLowerCase());
+		batch.set(docRef, object);
+	});
+
+	await batch.commit();
+	console.log('done');
+};
 
 export const createUserDocumentFromAuth = async (
 	userAuth,
