@@ -10,7 +10,7 @@ const CategoriesContext = createContext({
 });
 
 export const CategorierProvider = ({ children }) => {
-	const [categoryMap, setCategoryMap] = useState({});
+	const [categoriesMap, setCategoryMap] = useState({});
 
 	useEffect(() => {
 		addCollectionAndDocuments('categories', SHOP_DATA);
@@ -23,7 +23,7 @@ export const CategorierProvider = ({ children }) => {
 		})();
 	}, []);
 
-	const value = { categoryMap, setCategoryMap };
+	const value = { categoriesMap, setCategoryMap };
 	return (
 		<CategoriesContext.Provider value={value}>
 			{children}
