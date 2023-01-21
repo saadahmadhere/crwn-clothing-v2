@@ -6,7 +6,7 @@ import {
 
 import FormInput from '../form-input/form-input.component';
 import './sign-up-form.styles.scss';
-import Button from '../button/button.component';
+import { Button } from '../button/button.component';
 
 const SignUpForm = () => {
 	const defaultFormFields = {
